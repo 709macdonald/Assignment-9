@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>My API Practice</title>
+    </head>
+    <body>
+        <div id="main">
+            Why
+        </div>
+
+     <script>
+     var nwsRequest = new XMLHttpRequest();
+     nwsRequest.open('GET', 'http://api.musixmatch.com/ws/1.1/artist.search?apikey=dd50e9ccd000c5a3b6e56852adac965cq_artist=prodigy&page_size=5');
+
+     nwsRequest.send(null);
+
+     nwsRequest.onreadystatechange = function(){
+       var DONE = 4;
+       var OK = 200;
+
+       if(nwsRequest.readyStae === Done){
+          if(nwsRequest.statue === OK){
+            var nhsResponse = JSON.parse(nwsRequest.responseText);
+            var weatherDiv = document.getElementById('main')
+            weatherDiv.HTML = nhsResponse.features[0].properties.testDescription;
+          }
+       }
+     }
+
+      </script>
+
+    </body>
+
+</html>
